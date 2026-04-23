@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Runner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <h1 class="game-title">Neon Runner</h1>
+
+      <section class="game-wrapper">
+        <canvas id="gameCanvas" width="480" height="720" aria-label="Игровое поле"></canvas>
+
+        <div class="hud">
+          <div class="hud-item">
+            <span class="label">Очки</span>
+            <span id="scoreValue">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="label">Рекорд</span>
+            <span id="bestScoreValue">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="label">Скорость</span>
+            <span id="speedValue">0</span>
+          </div>
+        </div>
+
+        <div id="startScreen" class="overlay visible">
+          <h2>Аркадная гонка</h2>
+          <p>Уклоняйся от машин, собирай бонусы и набирай очки.</p>
+          <div class="setup-grid">
+            <label class="setup-field">
+              <span>Сложность</span>
+              <select id="difficultySelect">
+                <option value="easy">Лёгкая</option>
+                <option value="normal" selected>Нормальная</option>
+                <option value="hard">Сложная</option>
+              </select>
+            </label>
+            <label class="setup-field">
+              <span>Тема</span>
+              <select id="themeSelect">
+                <option value="neon" selected>Неон</option>
+                <option value="sunset">Закат</option>
+                <option value="midnight">Ночь</option>
+              </select>
+            </label>
+          </div>
+          <button id="playButton" class="btn">Играть</button>
+        </div>
+
+        <div id="pauseScreen" class="overlay">
+          <h2>Пауза</h2>
+          <p>Нажми <kbd>Esc</kbd>, чтобы продолжить.</p>
+        </div>
+
+        <div id="gameOverScreen" class="overlay">
+          <h2>Game Over</h2>
+          <p>Итоговый счёт: <strong id="finalScore">0</strong></p>
+          <p>Лучший счёт: <strong id="finalBestScore">0</strong></p>
+          <button id="restartButton" class="btn">Начать заново</button>
+        </div>
+      </section>
+
+      <section class="controls-info">
+        <p>Управление: <kbd>A</kbd>/<kbd>D</kbd> или <kbd>←</kbd>/<kbd>→</kbd>, пауза: <kbd>Esc</kbd></p>
+      </section>
+
+      <section class="touch-controls" aria-label="Тач-кнопки управления">
+        <button id="touchLeft" class="touch-btn" aria-label="Влево">←</button>
+        <button id="touchRight" class="touch-btn" aria-label="Вправо">→</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
