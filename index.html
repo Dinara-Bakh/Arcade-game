@@ -33,12 +33,26 @@
           <p>Уклоняйся от машин, собирай бонусы и набирай очки.</p>
           <div class="setup-grid">
             <label class="setup-field">
+              <span>Имя игрока</span>
+              <input id="playerNameInput" type="text" maxlength="16" placeholder="Игрок" />
+            </label>
+            <label class="setup-field">
               <span>Сложность</span>
               <select id="difficultySelect">
                 <option value="easy">Лёгкая</option>
                 <option value="normal" selected>Нормальная</option>
                 <option value="hard">Сложная</option>
               </select>
+            </label>
+            <label class="setup-field">
+              <span>Тип машины</span>
+              <select id="carTypeSelect">
+                <option value="balanced" selected>Balanced</option>
+                <option value="sprinter">Sprinter (быстрее)</option>
+                <option value="drift">Drift (манёвреннее)</option>
+                <option value="tank">Tank (стабильная)</option>
+              </select>
+              <small class="setup-note">Влияет на скорость, ускорение, управляемость и размер.</small>
             </label>
             <label class="setup-field">
               <span>Тема</span>
@@ -61,12 +75,19 @@
           <h2>Game Over</h2>
           <p>Итоговый счёт: <strong id="finalScore">0</strong></p>
           <p>Лучший счёт: <strong id="finalBestScore">0</strong></p>
+          <p>Место в топе: <strong id="finalRankText">—</strong></p>
           <button id="restartButton" class="btn">Начать заново</button>
         </div>
       </section>
 
       <section class="controls-info">
         <p>Управление: мышь или <kbd>A</kbd>/<kbd>D</kbd> и <kbd>←</kbd>/<kbd>→</kbd>, пауза: <kbd>Esc</kbd></p>
+        <button id="exportButton" class="btn export-btn">Экспортировать игру в .zip</button>
+      </section>
+
+      <section class="leaderboard-panel">
+        <h3>Топ-5 рекордов</h3>
+        <ol id="leaderboardList" class="leaderboard-list"></ol>
       </section>
 
       <section class="touch-controls" aria-label="Тач-кнопки управления">
@@ -75,6 +96,7 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

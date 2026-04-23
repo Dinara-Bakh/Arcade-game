@@ -56,7 +56,7 @@ body {
 
 .hud {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   left: 10px;
   right: 10px;
   display: flex;
@@ -85,12 +85,14 @@ body {
   inset: 0;
   display: grid;
   place-items: center;
+  align-content: start;
   text-align: center;
   padding: 24px;
   background: rgba(7, 10, 19, 0.88);
   opacity: 0;
   visibility: hidden;
   transition: opacity 160ms ease;
+  overflow-y: auto;
 }
 
 .overlay.visible {
@@ -131,6 +133,19 @@ body {
   color: var(--text);
 }
 
+.setup-field input {
+  border: 1px solid #3a4768;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #0f1628;
+  color: var(--text);
+}
+
+.setup-note {
+  font-size: 12px;
+  opacity: 0.78;
+}
+
 .btn {
   border: none;
   border-radius: 10px;
@@ -149,6 +164,46 @@ body {
 .controls-info {
   text-align: center;
   opacity: 0.9;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.export-btn {
+  width: min(100%, 280px);
+  font-size: 14px;
+}
+
+.leaderboard-panel {
+  background: rgba(10, 15, 28, 0.8);
+  border: 1px solid #2e3957;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.leaderboard-panel h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.leaderboard-list {
+  margin: 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 6px;
+}
+
+.leaderboard-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.leaderboard-empty {
+  opacity: 0.72;
+  list-style: none;
+  margin-left: -22px;
 }
 
 kbd {
